@@ -26,7 +26,7 @@
     "lint": "eslint .",
     "build": "tsc --declarationMap false",
     "prepare": "npm run build && ncc build lib/index.js -o dist --license LICENSE",
-    "test": "ts-mocha -p __test__/tsconfig.json __test__/**/*.ts",
+    "test": "nyc --reporter=lcov --reporter=text ts-mocha -p __test__/tsconfig.json __test__/**/*.ts",
     "tsc": "tsc",
     "all": "npm run prepare && npm run test"
   },
@@ -46,20 +46,25 @@
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
     "@actions/http-client": "^2.0.1",
-    "@tsconfig/node16": "^1.0.3",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/chai": "^5.0.1",
     "@types/node": "^18.11.18",
     "@types/sprintf-js": "^1.1.2",
     "@vercel/ncc": "^0.36.0",
     "eslint": "^8.32.0",
     "npm": "^10.2.0",
+    "sinon": "^19.0.2",
     "sprintf-js": "^1.1.2",
     "typescript": "^4.9.4"
   },
   "devDependencies": {
     "@testdeck/mocha": "^0.3.3",
-    "@types/mocha": "^10.0.1",
-    "chai": "^4.3.7",
+    "@types/mocha": "^10.0.10",
+    "@types/sinon": "^17.0.3",
+    "chai": "^5.1.2",
+    "expect": "^29.7.0",
     "mocha": "^10.2.0",
+    "nyc": "^17.1.0",
     "ts-mocha": "^10.0.0"
   },
   "engines": {

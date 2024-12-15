@@ -1,5 +1,6 @@
 /*
  * Copyright 2022 Google LLC
+ * Copyright 2024 Imamuzzaki Abu Salam
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +15,16 @@
  * limitations under the License.
  */
 
-import {describe} from 'mocha';
-import {run} from "../src";
-import {SetupActionEnvironmentFromArgv} from './test_util';
+import expect from "expect";
+import { describe } from "mocha";
+import { run } from "../src";
+import { SetupActionEnvironmentFromArgv } from "./test_util";
 
-
-describe("Main Test", function() {
+describe("Main Test", function () {
   SetupActionEnvironmentFromArgv();
-  let promise = run()
-})
+  const promise = run();
+
+  it("should return a promise", function () {
+    expect(promise).toBeInstanceOf(Promise);
+  });
+});

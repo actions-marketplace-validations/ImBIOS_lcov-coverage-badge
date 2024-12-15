@@ -1,5 +1,6 @@
 /*
  * Copyright 2022 Google LLC
+ * Copyright 2024 Imamuzzaki Abu Salam
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +15,21 @@
  * limitations under the License.
  */
 
-
 function SetupActionEnvironmentFromArgv() {
-    process.argv.forEach(function (val, index, array) {
-        process.stdout.write("######  Processing: " + val + "\n")
-        if (index > 0) {
-            let previousKey = array[index-1]
-            if (previousKey.startsWith("--")) {
-                previousKey = previousKey.substring(2);
-            }
-            let processKey = `INPUT_${previousKey.replace(/ /g, '_').toUpperCase()}`
-            process.env[processKey] = val
-        }
-    })
-    if (process.env['INPUT_FILE'] === undefined) {
-        process.env['INPUT_FILE'] = "__test__/coverage.dat"
+  process.argv.forEach(function (val, index, array) {
+    process.stdout.write("######  Processing: " + val + "\n");
+    if (index > 0) {
+      let previousKey = array[index - 1];
+      if (previousKey.startsWith("--")) {
+        previousKey = previousKey.substring(2);
+      }
+      let processKey = `INPUT_${previousKey.replace(/ /g, "_").toUpperCase()}`;
+      process.env[processKey] = val;
     }
+  });
+  if (process.env["INPUT_FILE"] === undefined) {
+    process.env["INPUT_FILE"] = "__test__/coverage.dat";
+  }
 }
 
-export{SetupActionEnvironmentFromArgv}
+export { SetupActionEnvironmentFromArgv };

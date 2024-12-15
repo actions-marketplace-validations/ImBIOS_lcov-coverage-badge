@@ -7,23 +7,28 @@ Please refer to package.json to identify those packages.
 List (Complete LICENSE LIST IS FOUND in dist/LICENSE with all current text).
 
 GitHub Actions:
+
 * @actions/core
 * @actions/github
 * @actions/http-client
 
 Node JS 16+
-* @tsconfig/node16
+
+* @tsconfig/node20
 * @types/node
 * eslint
 
 TypeScript
+
 * typescript
 
 Utilities:
+
 * sprintf-js
 * @vercel/ncc
 
 Testing:
+
 * @testmock/mocha
 * @types/mocha
 * chai

@@ -1,9 +1,8 @@
-# lcov_gh_badges
+# LCOV Coverage Badge
 
 ## TL;DR
 
-A GitHub Action for creating markdown embeddable badges, saved to your repository, directly from an 
-LCOV data file.
+A GitHub Action for creating markdown embeddable badges, saved to your repository, directly from an LCOV data file.
 
 ## Details
 
@@ -39,11 +38,13 @@ on:
 > CAUSE A BUILD LOOP.
 
 #### Add a step to read the coverage file
+
 ```yaml
 ...
 steps:
-  - uses: GoogleCloudPlatform/github-badge-lcov@v1.0.0
-    file: ./target/coverage.dat
+  - uses: ImBIOS/lcov-coverage-badge@v1
+    with:
+      file: ./target/coverage.dat
 ```
 
 ### Add the badge
@@ -53,28 +54,31 @@ Add the badge file to a README.md file or AsciiDoc as a link.
 ```markdown
 ![coverage](coverage.svg)
 ```
+
 Example:
 
 ![coverage](coverage.svg)
 
 ## Complete Configuration
+
 ```yaml
 ...
 steps:
-- uses: GoogleCloudPlatform/lcov-coverage-badgev@v1.0.0
-  file: ./target/coverage.dat
-  access_token: ${{ secret.COVERAGE_TOKEN }}
-  style: flat
-  icon_name: googlecloud,
-  icon_color: 'ffffff',
-  label: 'Coverage'
-  label_color: 'ffffff'
-  critical: 60
-  criticalColor: '9c2c9c'
-  warning: 75
-  warningColor: 'd68f0c'
-  success_color: '43ad43'
-  message_color: 'ffffff'
+- uses: ImBIOS/lcov-coverage-badge@v1
+  with:
+    file: ./target/coverage.dat
+    access_token: ${{ secret.COVERAGE_TOKEN }}
+    style: flat
+    icon_name: googlecloud,
+    icon_color: 'ffffff',
+    label: 'Coverage'
+    label_color: 'ffffff'
+    critical: 60
+    criticalColor: '9c2c9c'
+    warning: 75
+    warningColor: 'd68f0c'
+    success_color: '43ad43'
+    message_color: 'ffffff'
 ```
 
 ## Output Variables
@@ -86,17 +90,9 @@ steps:
 * coverage_score - The score lines hit / lines found
 * coverage_badge_url - The URL used to generate the badge
 
-### Additional Contributing Information
-
-Please visit the [Google Open Source](https://opensource.google/documentation/reference/releasing/template/CONTRIBUTING)
-page for additional information. If you don't have a CLA on file, fill one out, it's there for your protection.
-
 ## License
 
 This project is released under the Apache 2.0 license,
 please read the [License File](./LICENSE) file, or visit
 [Apache 2 License](https://www.apache.org/licenses/LICENSE-2.0)
 for more information.
-
-
-

@@ -8,6 +8,7 @@
 
 /*
  * Copyright 2022 Google LLC
+ * Copyright 2024 Imamuzzaki Abu Salam
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,10 +47,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Config = void 0;
-const constants_1 = __nccwpck_require__(5105);
-const util = __importStar(__nccwpck_require__(918));
 const core = __importStar(__nccwpck_require__(2186));
 const fmt = __importStar(__nccwpck_require__(3988));
+const constants_1 = __nccwpck_require__(5105);
+const util = __importStar(__nccwpck_require__(918));
 /**
  * The configuration object holds the state of
  * configuration for the executor can generate the files
@@ -57,8 +58,8 @@ const fmt = __importStar(__nccwpck_require__(3988));
  */
 class Config {
     constructor() {
-        this.accessToken = util.evaluateString(constants_1.Props.ACCESS_TOKEN, '');
-        this.file = util.evaluateString(constants_1.Props.FILE, '');
+        this.accessToken = util.evaluateString(constants_1.Props.ACCESS_TOKEN, "");
+        this.file = util.evaluateString(constants_1.Props.FILE, "");
         this.style = util.evaluateString(constants_1.Props.STYLE, constants_1.Defaults.STYLE);
         this.icon = util.evaluateString(constants_1.Props.ICON, constants_1.Defaults.ICON);
         this.label = util.evaluateString(constants_1.Props.LABEL, constants_1.Defaults.LABEL);
@@ -102,7 +103,7 @@ class Config {
         parts.push(fmt.sprintf(constants_1.Icons.COLOR, this.computeColor(coverage)));
         parts.push(fmt.sprintf(constants_1.Icons.STYLE, this.style));
         parts.push(fmt.sprintf(constants_1.Icons.MESSAGE, coverage));
-        return constants_1.Icons.PREFIX + parts.join('&') + `%`;
+        return constants_1.Icons.PREFIX + parts.join("&") + `%`;
     }
 }
 exports.Config = Config;
@@ -117,6 +118,7 @@ exports.Config = Config;
 
 /*
  * Copyright 2022 Google LLC
+ * Copyright 2024 Imamuzzaki Abu Salam
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -131,7 +133,7 @@ exports.Config = Config;
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.COVERAGE_SVG = exports.Outputs = exports.Icons = exports.Props = exports.Defaults = void 0;
+exports.Props = exports.Outputs = exports.Icons = exports.Defaults = exports.COVERAGE_SVG = void 0;
 /**
  * The constants file hold all constant objects.
  */
@@ -141,29 +143,29 @@ exports.COVERAGE_SVG = COVERAGE_SVG;
  * Defines the output variables used by the action.
  */
 const Outputs = {
-    COVERAGE_FUNCTIONS_FOUND: 'coverage_functions_found',
-    COVERAGE_FUNCTIONS_HIT: 'coverage_functions_hit',
-    COVERAGE_LINES_FOUND: 'coverage_lines_found',
-    COVERAGE_LINES_HIT: 'coverage_lines_hit',
-    COVERAGE_SCORE: 'coverage_score',
-    COVERAGE_BADGE_URL: 'coverage_badge_url',
+    COVERAGE_FUNCTIONS_FOUND: "coverage_functions_found",
+    COVERAGE_FUNCTIONS_HIT: "coverage_functions_hit",
+    COVERAGE_LINES_FOUND: "coverage_lines_found",
+    COVERAGE_LINES_HIT: "coverage_lines_hit",
+    COVERAGE_SCORE: "coverage_score",
+    COVERAGE_BADGE_URL: "coverage_badge_url",
 };
 exports.Outputs = Outputs;
 /**
  * Defines the default values used if not specified.
  */
 const Defaults = {
-    STYLE: 'flat',
-    ICON: 'googlecloud',
+    STYLE: "flat",
+    ICON: "googlecloud",
     LABEL: "Coverage",
     THRESHOLD_CRITICAL: 60,
     THRESHOLD_WARNING: 75,
-    COLOR_ICON: 'ffffff',
-    COLOR_LABEL: '363d45',
-    COLOR_MESSAGE: 'ffffff',
-    COLOR_SUCCESS: '43ad43',
-    COLOR_WARNING: 'd68f0C',
-    COLOR_CRITICAL: '9c2c2c'
+    COLOR_ICON: "ffffff",
+    COLOR_LABEL: "363d45",
+    COLOR_MESSAGE: "ffffff",
+    COLOR_SUCCESS: "43ad43",
+    COLOR_WARNING: "d68f0C",
+    COLOR_CRITICAL: "9c2c2c",
 };
 exports.Defaults = Defaults;
 /**
@@ -171,32 +173,32 @@ exports.Defaults = Defaults;
  */
 const Props = {
     ACCESS_TOKEN: "access_token",
-    FILE: 'file',
-    STYLE: 'style',
-    ICON: 'icon_name',
-    LABEL: 'label',
-    THRESHOLD_CRITICAL: 'critical',
-    THRESHOLD_WARNING: 'warning',
-    COLOR_ICON: 'icon_color',
-    COLOR_LABEL: 'label_color',
-    COLOR_MESSAGE: 'message_color',
-    COLOR_SUCCESS: 'success_color',
-    COLOR_WARNING: 'warning_color',
-    COLOR_CRITICAL: 'critical_color'
+    FILE: "file",
+    STYLE: "style",
+    ICON: "icon_name",
+    LABEL: "label",
+    THRESHOLD_CRITICAL: "critical",
+    THRESHOLD_WARNING: "warning",
+    COLOR_ICON: "icon_color",
+    COLOR_LABEL: "label_color",
+    COLOR_MESSAGE: "message_color",
+    COLOR_SUCCESS: "success_color",
+    COLOR_WARNING: "warning_color",
+    COLOR_CRITICAL: "critical_color",
 };
 exports.Props = Props;
 /**
  * The constants used for building the SVG URL.
  */
 const Icons = {
-    PREFIX: 'https://img.shields.io/static/v1?',
-    LABEL: 'label=%s',
-    LABEL_COLOR: 'labelColor=%s',
-    LOGO: 'logo=%s',
-    LOGO_COLOR: 'logoColor=%s',
-    COLOR: 'color=%s',
-    STYLE: 'style=%s',
-    MESSAGE: 'message=%s'
+    PREFIX: "https://img.shields.io/static/v1?",
+    LABEL: "label=%s",
+    LABEL_COLOR: "labelColor=%s",
+    LOGO: "logo=%s",
+    LOGO_COLOR: "logoColor=%s",
+    COLOR: "color=%s",
+    STYLE: "style=%s",
+    MESSAGE: "message=%s",
 };
 exports.Icons = Icons;
 
@@ -210,6 +212,7 @@ exports.Icons = Icons;
 
 /*
  * Copyright 2022 Google LLC
+ * Copyright 2024 Imamuzzaki Abu Salam
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -246,12 +249,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 const core = __importStar(__nccwpck_require__(2186));
+const node_process_1 = __importDefault(__nccwpck_require__(7742));
 const config_1 = __nccwpck_require__(88);
-const stats_1 = __nccwpck_require__(4204);
 const constants_1 = __nccwpck_require__(5105);
+const stats_1 = __nccwpck_require__(4204);
 const utils_1 = __nccwpck_require__(918);
 /**
  * This is the main program executed by the action.
@@ -269,8 +276,21 @@ const utils_1 = __nccwpck_require__(918);
 async function run() {
     try {
         let config = new config_1.Config();
+        // Skip the first two elements (node and script path)
+        const args = node_process_1.default.argv;
+        if (args.length > 0 && args.includes("coverage/lcov.info")) {
+            // Set to the first argument
+            const lcovFileDirectory = args.find((arg) => arg === "coverage/lcov.info");
+            if (!lcovFileDirectory) {
+                core.error("Invalid Configuration, please check the logs");
+                core.setFailed("Invalid Configuration");
+                throw new Error("Invalid Configuration");
+            }
+            config.file = lcovFileDirectory;
+        }
         if (!config.validate()) {
-            core.error('Invalid Configuration, please check the logs');
+            console.log("asasas", config.file);
+            core.error("Invalid Configuration, please check the logs");
             core.setFailed("Invalid Configuration");
         }
         // Compute the statistics
@@ -280,7 +300,7 @@ async function run() {
         let badgeURL = config.imageURL(coverage);
         // Generate the Badge File
         (0, utils_1.generateBadge)(config, badgeURL);
-        process.stdout.write("Generated Badge\n");
+        node_process_1.default.stdout.write("Generated Badge\n");
         // Set Output
         core.setOutput(constants_1.Outputs.COVERAGE_FUNCTIONS_FOUND, stats.functionsFound);
         core.setOutput(constants_1.Outputs.COVERAGE_FUNCTIONS_HIT, stats.functionsHit);
@@ -313,6 +333,7 @@ run();
 
 /*
  * Copyright 2022 Google LLC
+ * Copyright 2024 Imamuzzaki Abu Salam
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -354,17 +375,17 @@ exports.LcovStats = void 0;
 // A data structure for LCOV Stats
 const fs = __importStar(__nccwpck_require__(7147));
 const LCOV = {
-    SOURCE_FILE: 'SF',
-    FUNCTIONS_FOUND: 'FNF',
-    FUNCTIONS_HIT: 'FNH',
-    LINES_FOUND: 'LF',
-    LINES_HIT: 'LH',
-    LINE_NUMBER_AND_HIT_COUNT: 'DA',
-    END_OF_RECORD: 'end_of_record' // end_of_record
+    SOURCE_FILE: "SF",
+    FUNCTIONS_FOUND: "FNF",
+    FUNCTIONS_HIT: "FNH",
+    LINES_FOUND: "LF",
+    LINES_HIT: "LH",
+    LINE_NUMBER_AND_HIT_COUNT: "DA",
+    END_OF_RECORD: "end_of_record", // end_of_record
 };
 const TOKEN = {
-    COLON: ':',
-    COMMA: ','
+    COLON: ":",
+    COMMA: ",",
 };
 class LineNumberHitCount {
     constructor(input) {
@@ -436,13 +457,13 @@ class LcovStats {
     }
     read() {
         if (!this.processed) {
-            let content = fs.readFileSync(this.fileName, 'utf-8');
+            let content = fs.readFileSync(this.fileName, "utf-8");
             let fileStats;
-            content.split(/\r?\n/).forEach(line => {
+            content.split(/\r?\n/).forEach((line) => {
                 if (line.startsWith(LCOV.SOURCE_FILE)) {
                     fileStats = new FileStats(line);
                 }
-                if (!fileStats.evaluate(line)) {
+                if (fileStats && !fileStats.evaluate(line)) {
                     this.fileStats.push(fileStats);
                     this.linesFound += fileStats.linesFound;
                     this.linesHit += fileStats.linesHit;
@@ -476,6 +497,7 @@ exports.LcovStats = LcovStats;
 
 /*
  * Copyright 2022 Google LLC
+ * Copyright 2024 Imamuzzaki Abu Salam
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -518,14 +540,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.generateBadge = exports.evaluateString = exports.evaluateNumber = void 0;
 const core = __importStar(__nccwpck_require__(2186));
+const github = __importStar(__nccwpck_require__(5438));
 const http = __importStar(__nccwpck_require__(6255));
 const fs_1 = __importDefault(__nccwpck_require__(7147));
-const constants_1 = __nccwpck_require__(5105);
 const fmt = __importStar(__nccwpck_require__(3988));
-const github = __importStar(__nccwpck_require__(5438));
+const constants_1 = __nccwpck_require__(5105);
 function evaluateString(name, fallback) {
     let value = core.getInput(name);
-    if (value === null || value === undefined || value.trim() === '') {
+    if (value === null || value === undefined || value.trim() === "") {
         value = fallback;
     }
     return value;
@@ -534,7 +556,7 @@ exports.evaluateString = evaluateString;
 function evaluateNumber(name, fallback) {
     let value = core.getInput(name);
     let out = parseInt(value);
-    if (isNaN(out) || out >= 0 || out < 100) {
+    if (isNaN(out) || out < 0 || out >= 100) {
         out = fallback;
     }
     return out;
@@ -560,20 +582,23 @@ exports.generateBadge = generateBadge;
 function updateOrCreateFile(accessToken, contents, sha) {
     const context = github.context;
     const octokit = github.getOctokit(accessToken);
-    octokit.rest.repos.createOrUpdateFileContents({
+    octokit.rest.repos
+        .createOrUpdateFileContents({
         owner: context.repo.owner,
         repo: context.repo.repo,
         path: constants_1.COVERAGE_SVG,
-        message: 'Update coverage file from lcov_gh_badges',
+        message: "Update coverage file from lcov_gh_badges",
         content: contents,
         author: {
-            name: 'GCOV Github Badge',
-            email: 'build@github.com'
+            name: "GCOV Github Badge",
+            email: "build@github.com",
         },
-        sha: sha
-    }).then(o => {
+        sha: sha,
+    })
+        .then((o) => {
         process.stdout.write("Finished writing file: " + o.data + "\n");
-    }).catch(e => {
+    })
+        .catch((e) => {
         process.stderr.write("Failed to create or update File: " + e.message + "\n");
     });
 }
@@ -582,13 +607,15 @@ function writeToGitHub(config) {
         process.stdout.write("Creating file via Octokit\n");
         const context = github.context;
         const octokit = github.getOctokit(config.accessToken);
-        const contents = fs_1.default.readFileSync(constants_1.COVERAGE_SVG, { encoding: 'base64' });
-        octokit.rest.repos.getContent({
+        const contents = fs_1.default.readFileSync(constants_1.COVERAGE_SVG, { encoding: "base64" });
+        octokit.rest.repos
+            .getContent({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            path: constants_1.COVERAGE_SVG
-        }).then(value => {
-            if ('data' in value && 'sha' in value.data) {
+            path: constants_1.COVERAGE_SVG,
+        })
+            .then((value) => {
+            if ("data" in value && "sha" in value.data) {
                 const sha = value.data.sha;
                 if (sha) {
                     updateOrCreateFile(config.accessToken, contents, sha);
@@ -596,11 +623,12 @@ function writeToGitHub(config) {
             }
             else {
                 core.warning("Failed to get hash from file, attempting a new file.");
-                throw (new Error("Failed to get hash"));
+                throw new Error("Failed to get hash");
             }
-        }).catch(r => {
+        })
+            .catch((r) => {
             process.stdout.write(fmt.sprintf("Attempting to create file: %s\n", r.message));
-            updateOrCreateFile(config.accessToken, contents, '');
+            updateOrCreateFile(config.accessToken, contents, "");
         });
     }
 }
@@ -10501,6 +10529,14 @@ module.exports = require("https");
 
 "use strict";
 module.exports = require("net");
+
+/***/ }),
+
+/***/ 7742:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:process");
 
 /***/ }),
 

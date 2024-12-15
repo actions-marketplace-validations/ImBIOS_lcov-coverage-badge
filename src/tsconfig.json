@@ -9,11 +9,5 @@
     "moduleResolution": "node",
     "sourceMap": false
   },
-  "exclude": [
-    "../node_modules",
-    "**/*.spec.ts"
-  ],
-  "files": [
-    "./*.ts"
-  ]
+  "exclude": ["../node_modules", "**/*.spec.ts"]
 }
