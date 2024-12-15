@@ -84,8 +84,18 @@ The GitHub Action provides the following output variables:
 - **coverage_functions_hit**: Total number of functions hit (any > 0).
 - **coverage_lines_found**: Total line count.
 - **coverage_lines_hit**: Total lines hit (any > 0).
-- **coverage_score**: The score is calculated as lines hit / lines found.
+- **coverage_score**: The score calculated as lines hit / lines found.
 - **coverage_badge_url**: The URL used to generate the badge.
+
+## Support Me ⭐
+
+If you find this project helpful, please consider supporting it by giving it a **star** on GitHub.  
+
+Starring the repository helps others discover it and motivates me to continue improving and maintaining this project.  
+
+You can star the repository by clicking the "Star" button at the top of the GitHub page.
+
+Thank you for your support! 😊  
 
 ## Benefits of Using LCOV for Coverage Badges
 
