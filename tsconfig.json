@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "lib": ["es2021"],
+    "lib": ["ESNext"],
     "target": "es2021",
     "esModuleInterop": true,
     "module": "commonjs",
