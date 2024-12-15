@@ -24,7 +24,7 @@
   "scripts": {
     "clean": "rm -Rf ./lib && rm -Rf ./dist",
     "lint": "eslint .",
-    "build": "tsc --lib ESNext --declarationMap false",
+    "build": "tsc --declarationMap false",
     "prepare": "npm run build && ncc build lib/index.js -o dist --license LICENSE",
     "test": "nyc --reporter=lcov --reporter=text ts-mocha -p __test__/tsconfig.json __test__/**/*.ts",
     "tsc": "tsc",
