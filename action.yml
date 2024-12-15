@@ -1,5 +1,9 @@
 name: "LCOV Coverage Badge"
 description: "Generates Badges from LCOV files."
+branding:
+  icon: "shield"
+  color: "blue"
+author: "Imamuzzaki Abu Salam"
 inputs:
   file:
     description: "LCOV generated, combined, data file location from workspace root. Example: bazel-out/darwin-fastbuild/testlogs/pkg/<project_name>/<project_name>_test/coverage.dat "
