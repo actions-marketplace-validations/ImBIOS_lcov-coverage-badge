@@ -57,6 +57,19 @@ const util = __importStar(__nccwpck_require__(918));
  * correctly.
  */
 class Config {
+    accessToken;
+    file;
+    style;
+    label;
+    labelColor;
+    messageColor;
+    icon;
+    iconColor;
+    criticalThreshold;
+    criticalColor;
+    warningThreshold;
+    warningColor;
+    successColor;
     constructor() {
         this.accessToken = util.evaluateString(constants_1.Props.ACCESS_TOKEN, "");
         this.file = util.evaluateString(constants_1.Props.FILE, "");
@@ -388,9 +401,9 @@ const TOKEN = {
     COMMA: ",",
 };
 class LineNumberHitCount {
+    lineNumber = 0;
+    hitCount = 0;
     constructor(input) {
-        this.lineNumber = 0;
-        this.hitCount = 0;
         if (input.startsWith(LCOV.LINE_NUMBER_AND_HIT_COUNT)) {
             let startIndex = input.indexOf(TOKEN.COLON) + 1;
             let values = input.substring(startIndex).split(TOKEN.COMMA);
@@ -405,12 +418,13 @@ class LineNumberHitCount {
  * The statistics state holder object.
  */
 class FileStats {
+    sourceFile;
+    functionsFound = 0;
+    functionsHit = 0;
+    linesFound = 0;
+    linesHit = 0;
+    lineNumberHitCounts = new Array();
     constructor(sourceFile) {
-        this.functionsFound = 0;
-        this.functionsHit = 0;
-        this.linesFound = 0;
-        this.linesHit = 0;
-        this.lineNumberHitCounts = new Array();
         sourceFile = sourceFile.substring(LCOV.SOURCE_FILE.length + 1);
         this.sourceFile = sourceFile;
     }
@@ -445,13 +459,14 @@ class FileStats {
     }
 }
 class LcovStats {
+    fileName;
+    processed = false;
+    linesFound = 0;
+    linesHit = 0;
+    functionsFound = 0;
+    functionsHit = 0;
+    fileStats = new Array();
     constructor(fileName) {
-        this.processed = false;
-        this.linesFound = 0;
-        this.linesHit = 0;
-        this.functionsFound = 0;
-        this.functionsHit = 0;
-        this.fileStats = new Array();
         this.fileName = fileName;
         this.read();
     }

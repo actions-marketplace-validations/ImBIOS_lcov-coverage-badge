@@ -2,13 +2,16 @@
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
     "lib": ["ESNext"],
-    "target": "es2021",
-    "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "NodeNext",
+    "target": "es2022",
+
     "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "NodeNext",
+
     "declaration": true,
     "outDir": "./lib",
-    "moduleResolution": "node",
     "sourceMap": false
   },
   "include": ["./src"],
