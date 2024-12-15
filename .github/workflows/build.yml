@@ -17,11 +17,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - run: bun install --frozen-lockfile
-      - run: bun run all
+      # - uses: oven-sh/setup-bun@v2
+      #   with:
+      #     bun-version: latest
+      # - run: bun install --frozen-lockfile
+      # - run: bun run all
+      - run: npm install --frozen-lockfile
+      - run: npm run all
 
       - name: Compare
         run: |
